@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AnyStoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="50" />
+    <Property Name="description" Type="text" />
+    <Property Name="added_date" Type="datetime" />
+    <Property Name="added_by" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_dea_cust">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="name" Type="varchar" MaxLength="150" />
+    <Property Name="email" Type="varchar" MaxLength="150" />
+    <Property Name="contact" Type="varchar" MaxLength="15" />
+    <Property Name="address" Type="text" />
+    <Property Name="added_date" Type="datetime" />
+    <Property Name="added_by" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_products">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="category" Type="varchar" MaxLength="50" />
+    <Property Name="description" Type="text" />
+    <Property Name="rate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="qty" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="added_date" Type="datetime" />
+    <Property Name="added_by" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_transaction_detail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_id" Type="int" />
+    <Property Name="rate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="qty" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="total" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="dea_cust_id" Type="int" />
+    <Property Name="added_date" Type="datetime" />
+    <Property Name="added_by" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_transactions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="dea_cust_id" Type="int" />
+    <Property Name="grandTotal" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="transaction_date" Type="datetime" />
+    <Property Name="tax" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="discount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="added_by" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="first_name" Type="varchar" MaxLength="50" />
+    <Property Name="last_name" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="150" />
+    <Property Name="username" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="contact" Type="varchar" MaxLength="15" />
+    <Property Name="address" Type="text" />
+    <Property Name="gender" Type="varchar" MaxLength="10" />
+    <Property Name="user_type" Type="varchar" MaxLength="15" />
+    <Property Name="added_date" Type="datetime" />
+    <Property Name="added_by" Type="int" />
+  </EntityType>
+  <EntityContainer Name="AnyStoreModelStoreContainer">
+    <EntitySet Name="tbl_categories" EntityType="Self.tbl_categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_dea_cust" EntityType="Self.tbl_dea_cust" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_products" EntityType="Self.tbl_products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_transaction_detail" EntityType="Self.tbl_transaction_detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_transactions" EntityType="Self.tbl_transactions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_users" EntityType="Self.tbl_users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

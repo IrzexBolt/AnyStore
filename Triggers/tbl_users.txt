@@ -1,0 +1,53 @@
+Triggers for tbl_users
+1. After Insert Trigger
+
+USE AnyStore;
+GO
+
+CREATE TRIGGER trgAfterInsertUser
+ON tbl_users
+AFTER INSERT
+AS
+BEGIN
+    DECLARE @UserId INT, @Username VARCHAR(50);
+    SELECT @UserId = id, @Username = username FROM inserted;
+    
+    PRINT 'A new user with ID ' + CAST(@UserId AS VARCHAR) + ' and username ' + @Username + ' has been added.';
+END;
+GO
+
+2. After Update Trigger
+
+USE AnyStore;
+GO
+
+CREATE TRIGGER trgAfterUpdateUser
+ON tbl_users
+AFTER UPDATE
+AS
+BEGIN
+    DECLARE @UserId INT, @Username VARCHAR(50);
+    SELECT @UserId = id, @Username = username FROM inserted;
+    
+    PRINT 'User with ID ' + CAST(@UserId AS VARCHAR) + ' has been updated to username ' + @Username + '.';
+END;
+GO
+
+3. After Delete Trigger
+
+USE AnyStore;
+GO
+
+CREATE TRIGGER trgAfterDeleteUser
+ON tbl_users
+AFTER DELETE
+AS
+BEGIN
+    DECLARE @UserId INT, @Username VARCHAR(50);
+    SELECT @UserId = id, @Username = username FROM deleted;
+    
+    PRINT 'User with ID ' + CAST(@UserId AS VARCHAR) + ' and username ' + @Username + ' has been deleted.';
+END;
+GO
+
+

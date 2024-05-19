@@ -1,0 +1,76 @@
+Stored Procedures for tbl_transactions
+1. Insert a new transaction
+
+USE AnyStore;
+GO
+
+CREATE PROCEDURE spInsertTransaction
+    @type VARCHAR(50),
+    @dea_cust_id INT,
+    @grandTotal DECIMAL(18, 2),
+    @transaction_date DATETIME,
+    @tax DECIMAL(18, 2),
+    @discount DECIMAL(18, 2),
+    @added_by INT
+AS
+BEGIN
+    INSERT INTO tbl_transactions (type, dea_cust_id, grandTotal, transaction_date, tax, discount, added_by)
+    VALUES (@type, @dea_cust_id, @grandTotal, @transaction_date, @tax, @discount, @added_by);
+END;
+GO
+
+
+2. Retrieve all transactions
+
+USE AnyStore;
+GO
+
+CREATE PROCEDURE spGetAllTransactions
+AS
+BEGIN
+    SELECT * FROM tbl_transactions;
+END;
+GO
+
+3. Update a transaction
+
+USE AnyStore;
+GO
+
+CREATE PROCEDURE spUpdateTransaction
+    @id INT,
+    @type VARCHAR(50),
+    @dea_cust_id INT,
+    @grandTotal DECIMAL(18, 2),
+    @transaction_date DATETIME,
+    @tax DECIMAL(18, 2),
+    @discount DECIMAL(18, 2),
+    @added_by INT
+AS
+BEGIN
+    UPDATE tbl_transactions
+    SET type = @type,
+        dea_cust_id = @dea_cust_id,
+        grandTotal = @grandTotal,
+        transaction_date = @transaction_date,
+        tax = @tax,
+        discount = @discount,
+        added_by = @added_by
+    WHERE id = @id;
+END;
+GO
+
+4. Delete a transaction
+
+USE AnyStore;
+GO
+
+CREATE PROCEDURE spDeleteTransaction
+    @id INT
+AS
+BEGIN
+    DELETE FROM tbl_transactions
+    WHERE id = @id;
+END;
+GO
+

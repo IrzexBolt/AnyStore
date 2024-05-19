@@ -1,0 +1,53 @@
+Triggers for tbl_dea_cust
+1. After Insert Trigger
+
+USE AnyStore;
+GO
+
+CREATE TRIGGER trgAfterInsertDeaCust
+ON tbl_dea_cust
+AFTER INSERT
+AS
+BEGIN
+    DECLARE @DeaCustId INT, @Name VARCHAR(150);
+    SELECT @DeaCustId = id, @Name = name FROM inserted;
+    
+    PRINT 'A new dealer/customer with ID ' + CAST(@DeaCustId AS VARCHAR) + ' and name ' + @Name + ' has been added.';
+END;
+GO
+
+
+2. After Update Trigger
+
+
+USE AnyStore;
+GO
+
+CREATE TRIGGER trgAfterUpdateDeaCust
+ON tbl_dea_cust
+AFTER UPDATE
+AS
+BEGIN
+    DECLARE @DeaCustId INT, @Name VARCHAR(150);
+    SELECT @DeaCustId = id, @Name = name FROM inserted;
+    
+    PRINT 'Dealer/Customer with ID ' + CAST(@DeaCustId AS VARCHAR) + ' has been updated to name ' + @Name + '.';
+END;
+GO
+
+3. After Delete Trigger
+
+USE AnyStore;
+GO
+
+CREATE TRIGGER trgAfterDeleteDeaCust
+ON tbl_dea_cust
+AFTER DELETE
+AS
+BEGIN
+    DECLARE @DeaCustId INT, @Name VARCHAR(150);
+    SELECT @DeaCustId = id, @Name = name FROM deleted;
+    
+    PRINT 'Dealer/Customer with ID ' + CAST(@DeaCustId AS VARCHAR) + ' and name ' + @Name + ' has been deleted.';
+END;
+GO

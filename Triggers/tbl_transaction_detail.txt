@@ -1,0 +1,53 @@
+Triggers for tbl_transaction_detail
+1. After Insert Trigger
+
+USE AnyStore;
+GO
+
+CREATE TRIGGER trgAfterInsertTransactionDetail
+ON tbl_transaction_detail
+AFTER INSERT
+AS
+BEGIN
+    DECLARE @TransactionDetailId INT, @ProductId INT;
+    SELECT @TransactionDetailId = id, @ProductId = product_id FROM inserted;
+    
+    PRINT 'A new transaction detail with ID ' + CAST(@TransactionDetailId AS VARCHAR) + ' for product ID ' + @ProductId + ' has been added.';
+END;
+GO
+
+2. After Update Trigger
+
+USE AnyStore;
+GO
+
+CREATE TRIGGER trgAfterUpdateTransactionDetail
+ON tbl_transaction_detail
+AFTER UPDATE
+AS
+BEGIN
+    DECLARE @TransactionDetailId INT, @ProductId INT;
+    SELECT @TransactionDetailId = id, @ProductId = product_id FROM inserted;
+    
+    PRINT 'Transaction detail with ID ' + CAST(@TransactionDetailId AS VARCHAR) + ' for product ID ' + @ProductId + ' has been updated.';
+END;
+GO
+
+3. After Delete Trigger
+
+USE AnyStore;
+GO
+
+CREATE TRIGGER trgAfterDeleteTransactionDetail
+ON tbl_transaction_detail
+AFTER DELETE
+AS
+BEGIN
+    DECLARE @TransactionDetailId INT, @ProductId INT;
+    SELECT @TransactionDetailId = id, @ProductId = product_id FROM deleted;
+    
+    PRINT 'Transaction detail with ID ' + CAST(@TransactionDetailId AS VARCHAR) + ' for product ID ' + @ProductId + ' has been deleted.';
+END;
+GO
+
+

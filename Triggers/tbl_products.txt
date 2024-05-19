@@ -1,0 +1,54 @@
+Triggers for tbl_products
+1. After Insert Trigger
+
+USE AnyStore;
+GO
+
+CREATE TRIGGER trgAfterInsertProduct
+ON tbl_products
+AFTER INSERT
+AS
+BEGIN
+    DECLARE @ProductId INT, @Name VARCHAR(50);
+    SELECT @ProductId = id, @Name = name FROM inserted;
+    
+    PRINT 'A new product with ID ' + CAST(@ProductId AS VARCHAR) + ' and name ' + @Name + ' has been added.';
+END;
+GO
+
+2. After Update Trigger
+
+USE AnyStore;
+GO
+
+CREATE TRIGGER trgAfterUpdateProduct
+ON tbl_products
+AFTER UPDATE
+AS
+BEGIN
+    DECLARE @ProductId INT, @Name VARCHAR(50);
+    SELECT @ProductId = id, @Name = name FROM inserted;
+    
+    PRINT 'Product with ID ' + CAST(@ProductId AS VARCHAR) + ' has been updated to name ' + @Name + '.';
+END;
+GO
+
+
+3. After Delete Trigger
+
+USE AnyStore;
+GO
+
+CREATE TRIGGER trgAfterDeleteProduct
+ON tbl_products
+AFTER DELETE
+AS
+BEGIN
+    DECLARE @ProductId INT, @Name VARCHAR(50);
+    SELECT @ProductId = id, @Name = name FROM deleted;
+    
+    PRINT 'Product with ID ' + CAST(@ProductId AS VARCHAR) + ' and name ' + @Name + ' has been deleted.';
+END;
+GO
+
+

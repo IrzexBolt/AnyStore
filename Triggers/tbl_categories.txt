@@ -1,0 +1,54 @@
+Triggers for tbl_categories
+1. After Insert Trigger
+
+
+USE AnyStore;
+GO
+
+CREATE TRIGGER trgAfterInsertCategory
+ON tbl_categories
+AFTER INSERT
+AS
+BEGIN
+    DECLARE @CategoryId INT, @Title VARCHAR(50);
+    SELECT @CategoryId = id, @Title = title FROM inserted;
+    
+    PRINT 'A new category with ID ' + CAST(@CategoryId AS VARCHAR) + ' and title ' + @Title + ' has been added.';
+END;
+GO
+
+2. After Update Trigger
+
+USE AnyStore;
+GO
+
+CREATE TRIGGER trgAfterUpdateCategory
+ON tbl_categories
+AFTER UPDATE
+AS
+BEGIN
+    DECLARE @CategoryId INT, @Title VARCHAR(50);
+    SELECT @CategoryId = id, @Title = title FROM inserted;
+    
+    PRINT 'Category with ID ' + CAST(@CategoryId AS VARCHAR) + ' has been updated to title ' + @Title + '.';
+END;
+GO
+
+3. After Delete Trigger
+
+USE AnyStore;
+GO
+
+CREATE TRIGGER trgAfterDeleteCategory
+ON tbl_categories
+AFTER DELETE
+AS
+BEGIN
+    DECLARE @CategoryId INT, @Title VARCHAR(50);
+    SELECT @CategoryId = id, @Title = title FROM deleted;
+    
+    PRINT 'Category with ID ' + CAST(@CategoryId AS VARCHAR) + ' and title ' + @Title + ' has been deleted.';
+END;
+GO
+
+

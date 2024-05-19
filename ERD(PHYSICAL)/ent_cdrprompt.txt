@@ -1,0 +1,79 @@
+title Billing & Inventory Management System
+// define tables
+tbl_categories [icon: tags, color: orange]{
+  id int pk
+  title varchar(50)
+  description text
+  added_date datetime
+  added_by int
+}
+
+tbl_dea_cust [icon: users, color: green]{
+  id int pk
+  type varchar(50)
+  name varchar(150)
+  email varchar(150)
+  contact varchar(15)
+  address text
+  added_date datetime
+  added_by int
+}
+
+tbl_products [icon: box, color: red]{
+  id int pk
+  name varchar(50)
+  category varchar(50)
+  description text
+  rate decimal(18, 2)
+  qty decimal(18, 2)
+  added_date datetime
+  added_by int
+}
+
+tbl_transaction_detail [icon: clipboard, color: purple]{
+  id int pk
+  product_id int
+  rate decimal(18, 2)
+  qty decimal(18, 2)
+  total decimal(18, 2)
+  dea_cust_id int
+  added_date datetime
+  added_by int
+}
+
+tbl_transactions [icon: shopping-cart, color: blue]{
+  id int pk
+  type varchar(50)
+  dea_cust_id int
+  grandTotal decimal(18, 2)
+  transaction_date datetime
+  tax decimal(18, 2)
+  discount decimal(18, 2)
+  added_by int
+}
+
+tbl_users [icon: user, color: yellow]{
+  id int pk
+  first_name varchar(50)
+  last_name varchar(50)
+  email varchar(150)
+  username varchar(50)
+  password varchar(50)
+  contact varchar(15)
+  address text
+  gender varchar(10)
+  user_type varchar(15)
+  added_date datetime
+  added_by int
+}
+// End of tables
+// Relationships
+tbl_categories.added_by > tbl_users.id
+tbl_dea_cust.added_by > tbl_users.id
+tbl_products.added_by > tbl_users.id
+tbl_products.category > tbl_categories.title
+tbl_transaction_detail.dea_cust_id > tbl_dea_cust.id
+tbl_transaction_detail.product_id > tbl_products.id
+tbl_transactions.added_by > tbl_users.id
+tbl_transactions.dea_cust_id > tbl_dea_cust.id
+tbl_users.added_by > tbl_users.id

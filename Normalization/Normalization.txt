@@ -1,0 +1,277 @@
+1NF TABLE
+
+-- tbl_users
++------------------------+
+|        tbl_users       |
++------------------------+
+| id (INT, PK)           |
+| first_name (VARCHAR)   |
+
+| last_name (VARCHAR)    |
+| email (VARCHAR)        |
+| username (VARCHAR)     |
+| password (VARCHAR)     |
+| contact (VARCHAR)      |
+| address (TEXT)         |
+| gender (VARCHAR)       |
+| user_type (VARCHAR)    |
+| added_date (DATETIME)  |
+| added_by (INT)         |
++------------------------+
+
+-- tbl_dea_cust
++------------------------+
+|     tbl_dea_cust       |
++------------------------+
+| id (INT, PK)           |
+| type (VARCHAR)         |
+| name (VARCHAR)         |
+| email (VARCHAR)        |
+| contact (VARCHAR)      |
+| address (TEXT)         |
+| added_date (DATETIME)  |
+| added_by (INT)         |
++------------------------+
+
+-- tbl_transactions
++------------------------+
+|   tbl_transactions     |
++------------------------+
+| id (INT, PK)           |
+| type (VARCHAR)         |
+| dea_cust_id (INT, FK)  |
+| grandTotal (DECIMAL)   |
+| transaction_date (DATETIME)|
+| tax (DECIMAL)          |
+| discount (DECIMAL)     |
+| added_by (INT)         |
++------------------------+
+
+-- tbl_transaction_detail
++------------------------+
+| tbl_transaction_detail |
++------------------------+
+| id (INT, PK)           |
+| product_id (INT, FK)   |
+| rate (DECIMAL)         |
+| qty (DECIMAL)          |
+| total (DECIMAL)        |
+| dea_cust_id (INT, FK)  |
+| added_date (DATETIME)  |
+| added_by (INT)         |
++------------------------+
+
+-- tbl_products
++------------------------+
+|     tbl_products       |
++------------------------+
+| id (INT, PK)           |
+| name (VARCHAR)         |
+| category (VARCHAR)     |
+| description (TEXT)     |
+| rate (DECIMAL)         |
+| qty (DECIMAL)          |
+| added_date (DATETIME)  |
+| added_by (INT)         |
++------------------------+
+
+-- tbl_categories
++------------------------+
+|     tbl_categories     |
++------------------------+
+| id (INT, PK)           |
+| title (VARCHAR)        |
+| description (TEXT)     |
+| added_date (DATETIME)  |
+| added_by (INT)         |
++------------------------+
+
+
+2NF TABLE 
+
+-- tbl_users
++------------------------+
+|        tbl_users       |
++------------------------+
+| id (INT, PK)           |
+| first_name (VARCHAR)   |
+| last_name (VARCHAR)    |
+| email (VARCHAR)        |
+| username (VARCHAR)     |
+| password (VARCHAR)     |
+| contact (VARCHAR)      |
+| address (TEXT)         |
+| gender (VARCHAR)       |
+| user_type (VARCHAR)    |
+| added_date (DATETIME)  |
+| added_by (INT)         |
++------------------------+
+
+-- tbl_dea_cust
++------------------------+
+|     tbl_dea_cust       |
++------------------------+
+| id (INT, PK)           |
+| type (VARCHAR)         |
+| name (VARCHAR)         |
+| email (VARCHAR)        |
+| contact (VARCHAR)      |
+| address (TEXT)         |
+| added_date (DATETIME)  |
+| added_by (INT)         |
++------------------------+
+
+-- tbl_transactions
++------------------------+
+|   tbl_transactions     |
++------------------------+
+| id (INT, PK)           |
+| type (VARCHAR)         |
+| dea_cust_id (INT, FK)  |
+| grandTotal (DECIMAL)   |
+| transaction_date (DATETIME)|
+| tax (DECIMAL)          |
+| discount (DECIMAL)     |
+| added_by (INT)         |
++------------------------+
+
+-- tbl_transaction_detail
++------------------------+
+| tbl_transaction_detail |
++------------------------+
+| id (INT, PK)           |
+| product_id (INT, FK)   |
+| rate (DECIMAL)         |
+| qty (DECIMAL)          |
+| total (DECIMAL)        |
+| dea_cust_id (INT, FK)  |
+| added_date (DATETIME)  |
+| added_by (INT)         |
++------------------------+
+
+-- tbl_products
++------------------------+
+|     tbl_products       |
++------------------------+
+| id (INT, PK)           |
+| name (VARCHAR)         |
+| category (VARCHAR)     |
+| description (TEXT)     |
+| rate (DECIMAL)         |
+| qty (DECIMAL)          |
+| added_date (DATETIME)  |
+| added_by (INT)         |
++------------------------+
+
+-- tbl_categories
++------------------------+
+|     tbl_categories     |
++------------------------+
+| id (INT, PK)           |
+| title (VARCHAR)        |
+| description (TEXT)     |
+| added_date (DATETIME)  |
+| added_by (INT)         |
++------------------------+
+
+3NF TABLE
+
+-- tbl_users
++------------------------+
+|        tbl_users       |
++------------------------+
+| id (INT, PK)           |
+| first_name (VARCHAR)   |
+| last_name (VARCHAR)    |
+| email (VARCHAR)        |
+| username (VARCHAR)     |
+| password (VARCHAR)     |
+| contact (VARCHAR)      |
+| address (TEXT)         |
+| gender (VARCHAR)       |
+| user_type (VARCHAR)    |
+| added_date (DATETIME)  |
+| added_by (INT)         |
++------------------------+
+
+-- tbl_dea_cust
++------------------------+
+|     tbl_dea_cust       |
++------------------------+
+| id (INT, PK)           |
+| type (VARCHAR)         |
+| name (VARCHAR)         |
+| email (VARCHAR)        |
+| contact (VARCHAR)      |
+| address (TEXT)         |
+| added_date (DATETIME)  |
+| added_by (INT)         |
++------------------------+
+
+-- tbl_transactions
++------------------------+
+|   tbl_transactions     |
++------------------------+
+| id (INT, PK)           |
+| type (VARCHAR)         |
+| dea_cust_id (INT, FK)  |
+| grandTotal (DECIMAL)   |
+| transaction_date (DATETIME)|
+| tax (DECIMAL)          |
+| discount (DECIMAL)     |
+| added_by (INT)         |
++------------------------+
+
+-- tbl_transaction_detail
++------------------------+
+| tbl_transaction_detail |
++------------------------+
+| id (INT, PK)           |
+| product_id (INT, FK)   |
+| rate (DECIMAL)         |
+| qty (DECIMAL)          |
+| total (DECIMAL)        |
+| dea_cust_id (INT, FK)  |
+| added_date (DATETIME)  |
+| added_by (INT)         |
++------------------------+
+
+-- tbl_products
++------------------------+
+|     tbl_products       |
++------------------------+
+| id (INT, PK)           |
+| name (VARCHAR)         |
+| category_id (INT, FK)  |
+| description (TEXT)     |
+| rate (DECIMAL)         |
+| qty (DECIMAL)          |
+| added_date (DATETIME)  |
+| added_by (INT)         |
++------------------------+
+
+-- tbl_categories
++------------------------+
+|     tbl_categories     |
++------------------------+
+| id (INT, PK)           |
+| title (VARCHAR)        |
+| description (TEXT)     |
+| added_date (DATETIME)  |
+| added_by (INT)         |
++------------------------+
+ 
+ONLY 3NF required in tbl_products
+
++------------------------+
+|     tbl_products       |
++------------------------+
+| id (INT, PK)           |
+| name (VARCHAR)         |
+| category_id (INT, FK)  |
+| description (TEXT)     |
+| rate (DECIMAL)         |
+| qty (DECIMAL)          |
+| added_date (DATETIME)  |
+| added_by (INT)         |
++------------------------+

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AnyStoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="added_date" Type="DateTime" Precision="3" />
+    <Property Name="added_by" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_dea_cust">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="contact" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="added_date" Type="DateTime" Precision="3" />
+    <Property Name="added_by" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_products">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="qty" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="added_date" Type="DateTime" Precision="3" />
+    <Property Name="added_by" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_transaction_detail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="product_id" Type="Int32" />
+    <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="qty" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="total" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="dea_cust_id" Type="Int32" />
+    <Property Name="added_date" Type="DateTime" Precision="3" />
+    <Property Name="added_by" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_transactions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dea_cust_id" Type="Int32" />
+    <Property Name="grandTotal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="transaction_date" Type="DateTime" Precision="3" />
+    <Property Name="tax" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="discount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="added_by" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="contact" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="user_type" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="added_date" Type="DateTime" Precision="3" />
+    <Property Name="added_by" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="AnyStoreEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_categories" EntityType="Self.tbl_categories" />
+    <EntitySet Name="tbl_dea_cust" EntityType="Self.tbl_dea_cust" />
+    <EntitySet Name="tbl_products" EntityType="Self.tbl_products" />
+    <EntitySet Name="tbl_transaction_detail" EntityType="Self.tbl_transaction_detail" />
+    <EntitySet Name="tbl_transactions" EntityType="Self.tbl_transactions" />
+    <EntitySet Name="tbl_users" EntityType="Self.tbl_users" />
+  </EntityContainer>
+</Schema>

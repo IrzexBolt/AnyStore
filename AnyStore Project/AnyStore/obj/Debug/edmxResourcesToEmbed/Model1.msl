@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AnyStoreModelStoreContainer" CdmEntityContainer="AnyStoreEntities1">
+    <EntitySetMapping Name="tbl_categories">
+      <EntityTypeMapping TypeName="AnyStoreModel.tbl_categories">
+        <MappingFragment StoreEntitySet="tbl_categories">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="added_date" ColumnName="added_date" />
+          <ScalarProperty Name="added_by" ColumnName="added_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_dea_cust">
+      <EntityTypeMapping TypeName="AnyStoreModel.tbl_dea_cust">
+        <MappingFragment StoreEntitySet="tbl_dea_cust">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="added_date" ColumnName="added_date" />
+          <ScalarProperty Name="added_by" ColumnName="added_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_products">
+      <EntityTypeMapping TypeName="AnyStoreModel.tbl_products">
+        <MappingFragment StoreEntitySet="tbl_products">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="rate" ColumnName="rate" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="added_date" ColumnName="added_date" />
+          <ScalarProperty Name="added_by" ColumnName="added_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_transaction_detail">
+      <EntityTypeMapping TypeName="AnyStoreModel.tbl_transaction_detail">
+        <MappingFragment StoreEntitySet="tbl_transaction_detail">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="rate" ColumnName="rate" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="dea_cust_id" ColumnName="dea_cust_id" />
+          <ScalarProperty Name="added_date" ColumnName="added_date" />
+          <ScalarProperty Name="added_by" ColumnName="added_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_transactions">
+      <EntityTypeMapping TypeName="AnyStoreModel.tbl_transactions">
+        <MappingFragment StoreEntitySet="tbl_transactions">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="dea_cust_id" ColumnName="dea_cust_id" />
+          <ScalarProperty Name="grandTotal" ColumnName="grandTotal" />
+          <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="added_by" ColumnName="added_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_users">
+      <EntityTypeMapping TypeName="AnyStoreModel.tbl_users">
+        <MappingFragment StoreEntitySet="tbl_users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+          <ScalarProperty Name="added_date" ColumnName="added_date" />
+          <ScalarProperty Name="added_by" ColumnName="added_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

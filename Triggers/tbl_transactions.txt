@@ -1,0 +1,53 @@
+Triggers for tbl_transactions
+1. After Insert Trigger
+
+USE AnyStore;
+GO
+
+CREATE TRIGGER trgAfterInsertTransaction
+ON tbl_transactions
+AFTER INSERT
+AS
+BEGIN
+    DECLARE @TransactionId INT, @Type VARCHAR(50);
+    SELECT @TransactionId = id, @Type = type FROM inserted;
+    
+    PRINT 'A new transaction with ID ' + CAST(@TransactionId AS VARCHAR) + ' and type ' + @Type + ' has been added.';
+END;
+GO
+
+2. After Update Trigger
+
+USE AnyStore;
+GO
+
+CREATE TRIGGER trgAfterUpdateTransaction
+ON tbl_transactions
+AFTER UPDATE
+AS
+BEGIN
+    DECLARE @TransactionId INT, @Type VARCHAR(50);
+    SELECT @TransactionId = id, @Type = type FROM inserted;
+    
+    PRINT 'Transaction with ID ' + CAST(@TransactionId AS VARCHAR) + ' has been updated to type ' + @Type + '.';
+END;
+GO
+
+3. After Delete Trigger
+
+USE AnyStore;
+GO
+
+CREATE TRIGGER trgAfterDeleteTransaction
+ON tbl_transactions
+AFTER DELETE
+AS
+BEGIN
+    DECLARE @TransactionId INT, @Type VARCHAR(50);
+    SELECT @TransactionId = id, @Type = type FROM deleted;
+    
+    PRINT 'Transaction with ID ' + CAST(@TransactionId AS VARCHAR) + ' and type ' + @Type + ' has been deleted.';
+END;
+GO
+
+

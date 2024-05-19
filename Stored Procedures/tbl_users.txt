@@ -1,0 +1,87 @@
+Stored Procedures for tbl_users
+1. Insert a new user
+
+USE AnyStore;
+GO
+
+CREATE PROCEDURE spInsertUser
+    @first_name VARCHAR(50),
+    @last_name VARCHAR(50),
+    @email VARCHAR(150),
+    @username VARCHAR(50),
+    @password VARCHAR(50),
+    @contact VARCHAR(15),
+    @address TEXT,
+    @gender VARCHAR(10),
+    @user_type VARCHAR(15),
+    @added_date DATETIME,
+    @added_by INT
+AS
+BEGIN
+    INSERT INTO tbl_users (first_name, last_name, email, username, password, contact, address, gender, user_type, added_date, added_by)
+    VALUES (@first_name, @last_name, @email, @username, @password, @contact, @address, @gender, @user_type, @added_date, @added_by);
+END;
+GO
+
+2. Retrieve all users
+
+USE AnyStore;
+GO
+
+CREATE PROCEDURE spGetAllUsers
+AS
+BEGIN
+    SELECT * FROM tbl_users;
+END;
+GO
+
+3. Update a user
+
+USE AnyStore;
+GO
+
+CREATE PROCEDURE spUpdateUser
+    @id INT,
+    @first_name VARCHAR(50),
+    @last_name VARCHAR(50),
+    @email VARCHAR(150),
+    @username VARCHAR(50),
+    @password VARCHAR(50),
+    @contact VARCHAR(15),
+    @address TEXT,
+    @gender VARCHAR(10),
+    @user_type VARCHAR(15),
+    @added_date DATETIME,
+    @added_by INT
+AS
+BEGIN
+    UPDATE tbl_users
+    SET first_name = @first_name,
+        last_name = @last_name,
+        email = @email,
+        username = @username,
+        password = @password,
+        contact = @contact,
+        address = @address,
+        gender = @gender,
+        user_type = @user_type,
+        added_date = @added_date,
+        added_by = @added_by
+    WHERE id = @id;
+END;
+GO
+
+4. Delete a user
+
+USE AnyStore;
+GO
+
+CREATE PROCEDURE spDeleteUser
+    @id INT
+AS
+BEGIN
+    DELETE FROM tbl_users
+    WHERE id = @id;
+END;
+GO
+

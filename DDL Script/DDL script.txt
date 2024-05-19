@@ -1,0 +1,77 @@
+CREATE DATABASE AnyStore;
+
+USE AnyStore;
+
+CREATE TABLE tbl_categories (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(50),
+    description TEXT,
+    added_date DATETIME,
+    added_by INT
+);
+
+CREATE TABLE tbl_dea_cust (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    type VARCHAR(50),
+    name VARCHAR(150),
+    email VARCHAR(150),
+    contact VARCHAR(15),
+    address TEXT,
+    added_date DATETIME,
+    added_by INT
+);
+
+
+CREATE TABLE tbl_products (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
+    category VARCHAR(50),
+    description TEXT,
+    rate DECIMAL(18, 2),
+    qty DECIMAL(18, 2),
+    added_date DATETIME,
+    added_by INT
+);
+
+
+CREATE TABLE tbl_transaction_detail (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    product_id INT,
+    rate DECIMAL(18, 2),
+    qty DECIMAL(18, 2),
+    total DECIMAL(18, 2),
+    dea_cust_id INT,
+    added_date DATETIME,
+    added_by INT,
+    FOREIGN KEY (product_id) REFERENCES tbl_products(id),
+    FOREIGN KEY (dea_cust_id) REFERENCES tbl_dea_cust(id)
+);
+
+
+CREATE TABLE  tbl_transactions (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    type VARCHAR(50),
+    dea_cust_id INT,
+    grandTotal DECIMAL(18, 2),
+    transaction_date DATETIME,
+    tax DECIMAL(18, 2),
+    discount DECIMAL(18, 2),
+    added_by INT,
+    FOREIGN KEY (dea_cust_id) REFERENCES tbl_dea_cust(id)
+);
+
+
+CREATE TABLE  tbl_users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(150),
+    username VARCHAR(50),
+    password VARCHAR(50),
+    contact VARCHAR(15),
+    address TEXT,
+    gender VARCHAR(10),
+    user_type VARCHAR(15),
+    added_date DATETIME,
+    added_by INT
+);
